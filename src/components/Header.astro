@@ -1,27 +1,32 @@
 ---
 const base = import.meta.env.BASE_URL;
 const url = (path) => `${base}${path.replace(/^\//, '')}`;
-const nav = [
-  ['/', 'Home'],
-  ['/services/', 'Services'],
-  ['/documentation/', 'Documentation'],
-  ['/training/', 'Training'],
-  ['/research/', 'Research'],
-  ['/news/', 'News'],
-  ['/contact/', 'Contact']
+
+const navItems = [
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services/" },
+  { label: "Documentation", href: "/documentation/" },
+  { label: "Training", href: "/training/" },
+  { label: "Research", href: "/research/" },
+  { label: "News", href: "/news/" },
+  { label: "Contact", href: "/contact/" },
 ];
 ---
+
 <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href={url('/')} aria-label="Research Computing Services home">
-      <img src={url('/logos/fm-logo.png')} alt="Franklin & Marshall College" />
-      <span>
-        <span class="brand-title">Research Computing Services</span><br />
-        <span class="brand-subtitle">Franklin &amp; Marshall College</span>
-      </span>
-    </a>
-    <nav class="nav" aria-label="Primary navigation">
-      {nav.map(([href, label]) => <a href={url(href)}>{label}</a>)}
-    </nav>
-  </div>
+  <a class="brand" href="/">
+    <img src="/rcs-website/images/fm-logo.png" alt="Franklin & Marshall College" />
+    <span class="brand-divider" aria-hidden="true"></span>
+    <span class="brand-title">Research Computing Services</span>
+  </a>
+
+  <nav class="main-nav" aria-label="Primary navigation">
+    {navItems.map((item) => (
+      <a href={item.href}>{item.label}</a>
+    ))}
+  </nav>
+
+  <button class="search-button" aria-label="Search">
+    <span>⌕</span>
+  </button>
 </header>

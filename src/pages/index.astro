@@ -10,28 +10,38 @@ const url = (path) => `${base}${path.replace(/^\//, '')}`;
 const spotlightImage = url(spotlight.image);
 ---
 <BaseLayout title="Research Computing Services | Franklin & Marshall College">
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">Franklin &amp; Marshall College</div>
-        <h1>Accelerating computational research and teaching.</h1>
-        <p>Research Computing Services helps faculty, students, and collaborators use computing, data, software, and national cyberinfrastructure effectively.</p>
+  <section class="home-hero-row">
+  <section class="hero-panel">
+    <div class="hero-overlay">
+      <div class="hero-content">
+        <h1>Accelerating<br />Research at F&amp;M</h1>
+        <p>
+          Research Computing Services provides the high performance computing,
+          data, and expert support you need to advance discovery and scholarship.
+        </p>
         <div class="hero-actions">
-          <a class="button button-primary" href={url('/services/')}>Explore services</a>
-          <a class="button button-secondary" href={url('/documentation/')}>View documentation</a>
-          <a class="button button-outline" href="https://request.fandm.edu">Open a ticket</a>
+          <a class="button-primary" href="/services/">Explore Services</a>
+          <a class="button-secondary" href="https://request.fandm.edu/">Request Support</a>
         </div>
       </div>
-      <aside class="hero-panel" aria-label="System status summary">
-        <h2>System Status</h2>
-        <div class="status-list">
-          <div class="status-item"><span>HPC Cluster</span><span class="status-ok">Operational</span></div>
-          <div class="status-item"><span>JupyterHub</span><span class="status-ok">Operational</span></div>
-          <div class="status-item"><span>Globus</span><span class="status-ok">Operational</span></div>
-        </div>
-      </aside>
     </div>
   </section>
+
+  <aside class="status-panel hero-status">
+    <h2>System Status</h2>
+
+    <div class="status-list">
+      <div><span>●</span><strong>HPC Cluster</strong><em>Operational</em></div>
+      <div><span>●</span><strong>JupyterHub</strong><em>Operational</em></div>
+      <div><span>●</span><strong>Globus</strong><em>Operational</em></div>
+      <div><span>●</span><strong>Storage</strong><em>Operational</em></div>
+      <div><span>●</span><strong>RStudio</strong><em>Operational</em></div>
+      <div><span>●</span><strong>WebWork</strong><em>Operational</em></div>
+    </div>
+
+    <a class="status-link" href="/status/">View full status page →</a>
+  </aside>
+</section>
 
   <section class="section band">
     <div class="container">
