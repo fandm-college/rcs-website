@@ -555,3 +555,12 @@ img { max-width: 100%; display: block; }
     grid-template-columns: 1fr;
   }
 }
+
+.search-button {
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+}

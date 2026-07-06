@@ -5,59 +5,117 @@ import NewsCard from '../components/NewsCard.astro';
 import { services } from '../data/services.js';
 import { news } from '../data/news.js';
 import { spotlight } from '../data/spotlight.js';
+
 const base = import.meta.env.BASE_URL;
 const url = (path) => `${base}${path.replace(/^\//, '')}`;
 const spotlightImage = url(spotlight.image);
 ---
+
 <BaseLayout title="Research Computing Services | Franklin & Marshall College">
-  <section class="home-hero-row">
-  <section class="hero-panel">
-    <div class="hero-overlay">
-      <div class="hero-content">
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
         <h1>Accelerating<br />Research at F&amp;M</h1>
         <p>
           Research Computing Services provides the high performance computing,
           data, and expert support you need to advance discovery and scholarship.
         </p>
         <div class="hero-actions">
-          <a class="button-primary" href="/services/">Explore Services</a>
-          <a class="button-secondary" href="https://request.fandm.edu/">Request Support</a>
+          <a class="button button-primary" href={url('/services/')}>Explore Services</a>
+          <a class="button button-outline" href="https://request.fandm.edu/">Request Support</a>
         </div>
       </div>
+
+      <aside class="hero-panel">
+        <h2>System Status</h2>
+        <div class="status-list">
+          <div class="status-item"><span>HPC Cluster</span><span class="status-ok">Operational</span></div>
+          <div class="status-item"><span>JupyterHub</span><span class="status-ok">Operational</span></div>
+          <div class="status-item"><span>Globus</span><span class="status-ok">Operational</span></div>
+          <div class="status-item"><span>Storage</span><span class="status-ok">Operational</span></div>
+          <div class="status-item"><span>RStudio</span><span class="status-ok">Operational</span></div>
+          <div class="status-item"><span>WebWork</span><span class="status-ok">Operational</span></div>
+        </div>
+        <a class="status-link" href={url('/status/')}>View full status page →</a>
+      </aside>
     </div>
   </section>
-
-  <aside class="status-panel hero-status">
-    <h2>System Status</h2>
-
-    <div class="status-list">
-      <div><span>●</span><strong>HPC Cluster</strong><em>Operational</em></div>
-      <div><span>●</span><strong>JupyterHub</strong><em>Operational</em></div>
-      <div><span>●</span><strong>Globus</strong><em>Operational</em></div>
-      <div><span>●</span><strong>Storage</strong><em>Operational</em></div>
-      <div><span>●</span><strong>RStudio</strong><em>Operational</em></div>
-      <div><span>●</span><strong>WebWork</strong><em>Operational</em></div>
-    </div>
-
-    <a class="status-link" href="/status/">View full status page →</a>
-  </aside>
-</section>
 
   <section class="section band">
     <div class="container">
-      <div class="section-heading"><div><h2>I want to...</h2><p>Start with the task you need to complete. We will guide you to the right service or support path.</p></div></div>
+      <div class="section-heading">
+        <div>
+          <h2>I want to...</h2>
+          <p>Start with the task you need to complete. We will guide you to the right service or support path.</p>
+        </div>
+      </div>
+
       <div class="grid grid-4">
-        <a class="card quick-card" href={url('/services/hpc/')}><h3>Run a computation</h3><p>Use campus computing resources for research jobs.</p></a>
-        <a class="card quick-card" href={url('/services/jupyterhub/')}><h3>Use JupyterHub</h3><p>Teach or learn with browser-based notebooks.</p></a>
-        <a class="card quick-card" href={url('/services/globus/')}><h3>Transfer data</h3><p>Move and share research data reliably.</p></a>
-        <a class="card quick-card" href={url('/services/national-resources/')}><h3>Use national resources</h3><p>Explore ACCESS, Jetstream2, and OSG.</p></a>
+        <a class="card quick-card" href={url('/services/hpc/')}>
+          <h3>Run a computation</h3>
+          <p>Use campus computing resources for research jobs.</p>
+        </a>
+
+        <a class="card quick-card" href={url('/services/jupyterhub/')}>
+          <h3>Use JupyterHub</h3>
+          <p>Teach or learn with browser-based notebooks.</p>
+        </a>
+
+        <a class="card quick-card" href={url('/services/globus/')}>
+          <h3>Transfer data</h3>
+          <p>Move and share research data reliably.</p>
+        </a>
+
+        <a class="card quick-card" href={url('/services/national-resources/')}>
+          <h3>Use national resources</h3>
+          <p>Explore ACCESS, Jetstream2, and OSG.</p>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="section"><div class="container"><div class="section-heading"><div><h2>Services</h2><p>Local and external resources for computational research, teaching, and data-intensive work.</p></div><a href={url('/services/')}>All services →</a></div><div class="grid grid-4">{services.slice(0, 8).map((service) => <ServiceCard service={service} />)}</div></div></section>
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2>Services</h2>
+          <p>Local and external resources for computational research, teaching, and data-intensive work.</p>
+        </div>
+        <a href={url('/services/')}>All services →</a>
+      </div>
 
-  <section class="section band"><div class="container spotlight"><img src={spotlightImage} alt="Research image for Dr. Christina Weaver spotlight" /><div><div class="kicker">Faculty Research Spotlight</div><h2>{spotlight.title}</h2><h3>{spotlight.name}</h3><p>{spotlight.summary}</p><a class="button button-primary" href={spotlight.href}>Read the spotlight</a></div></div></section>
+      <div class="grid grid-4">
+        {services.slice(0, 8).map((service) => <ServiceCard service={service} />)}
+      </div>
+    </div>
+  </section>
 
-  <section class="section"><div class="container"><div class="section-heading"><div><h2>Latest News</h2><p>Updates from Research Computing Services and the F&amp;M research community.</p></div><a href={url('/news/')}>All news →</a></div><div class="grid grid-3">{news.map((item) => <NewsCard item={item} />)}</div></div></section>
+  <section class="section band">
+    <div class="container spotlight">
+      <img src={spotlightImage} alt="Research image for Dr. Christina Weaver spotlight" />
+      <div>
+        <div class="kicker">Faculty Research Spotlight</div>
+        <h2>{spotlight.title}</h2>
+        <h3>{spotlight.name}</h3>
+        <p>{spotlight.summary}</p>
+        <a class="button button-primary" href={spotlight.href}>Read the spotlight</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-heading">
+        <div>
+          <h2>Latest News</h2>
+          <p>Updates from Research Computing Services and the F&amp;M research community.</p>
+        </div>
+        <a href={url('/news/')}>All news →</a>
+      </div>
+
+      <div class="grid grid-3">
+        {news.map((item) => <NewsCard item={item} />)}
+      </div>
+    </div>
+  </section>
 </BaseLayout>
