@@ -1,0 +1,13 @@
+---
+const { title, subtitle, buttons = [] } = Astro.props;
+---
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="container hero-content">
+    <h1>{title}</h1>
+    <p>{subtitle}</p>
+    <div class="hero-actions">
+      {buttons.map((button) => <a class={`btn ${button.variant ?? 'btn-primary'}`} href={button.href}>{button.label}</a>)}
+    </div>
+  </div>
+</section>

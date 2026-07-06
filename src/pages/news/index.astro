@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { news } from '../../content/news';
+import { url } from '../../content/site';
+---
+<BaseLayout title="News | Research Computing Services"><section class="page-header"><h1>News & Announcements</h1><p>Updates, events, and stories from Research Computing Services.</p></section><section class="container news-list">{news.map(item => <article class="news-row">{item.image && <img src={url(`/images/${item.image}`)} alt="" />}<div><p class="eyebrow">{item.date}</p><h2>{item.title}</h2><p>{item.excerpt}</p><a href={item.externalUrl}>Read more →</a></div></article>)}</section></BaseLayout>

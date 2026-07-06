@@ -1,0 +1,32 @@
+---
+import { site, url } from '../content/site';
+---
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div>
+      <img src={url('/images/fm-logo.png')} alt="Franklin & Marshall College" class="footer-logo" />
+      <p>{site.name}<br />{site.location}<br />{site.college}<br />Email: <a href={`mailto:${site.email}`}>{site.email}</a></p>
+    </div>
+    <div>
+      <h3>Quick Links</h3>
+      <a href={url('/services/')}>Services</a>
+      <a href={url('/documentation/')}>Documentation</a>
+      <a href={url('/training/')}>Training</a>
+      <a href={url('/research/')}>Research</a>
+      <a href={url('/news/')}>News</a>
+    </div>
+    <div>
+      <h3>Resources</h3>
+      <a href={site.jupyterHubGuide}>JupyterHub Faculty Guide</a>
+      <a href={site.globusGuide}>Globus Faculty Guide</a>
+      <a href={url('/services/national-resources/')}>National Resources</a>
+      <a href={url('/contact/')}>Contact</a>
+    </div>
+    <div>
+      <h3>Contact Us</h3>
+      <p>We're here to help with your research computing needs.</p>
+      <p>📍 {site.location}<br />✉ <a href={`mailto:${site.email}`}>{site.email}</a><br />🎫 <a href={site.ticketUrl}>Submit a ticket at request.fandm.edu</a></p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Franklin & Marshall College <span>Privacy Policy · Accessibility</span></div>
+</footer>

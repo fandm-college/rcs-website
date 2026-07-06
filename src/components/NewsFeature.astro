@@ -1,0 +1,17 @@
+---
+import { news } from '../content/news';
+import { url } from '../content/site';
+const item = news[0];
+---
+<section class="news-feature">
+  <div class="section-title"><h2>Latest News</h2><a href={url('/news/')}>View all news →</a></div>
+  <article class="feature-card">
+    <img src={url(`/images/${item.image}`)} alt="Tony Weaver holding Globus award" />
+    <div>
+      <p class="eyebrow">{item.date}</p>
+      <h3>{item.title}</h3>
+      <p>{item.excerpt}</p>
+      <a href={item.externalUrl}>Read the full story →</a>
+    </div>
+  </article>
+</section>

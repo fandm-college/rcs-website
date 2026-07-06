@@ -1,0 +1,15 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SupportBlock from '../../components/SupportBlock.astro';
+import { site, url } from '../../content/site';
+---
+<BaseLayout title="Documentation | Research Computing Services">
+<section class="page-header"><h1>Documentation</h1><p>Guides, tutorials, and reference materials for Research Computing services.</p></section>
+<section class="container card-grid">
+  <a class="info-card" href={site.jupyterHubGuide}><h2>JupyterHub Faculty Guide</h2><p>Course setup, rosters, faculty workflows, and teaching with notebooks.</p></a>
+  <a class="info-card" href={site.globusGuide}><h2>Globus Faculty Guide</h2><p>Transfer, sharing, endpoints, and data movement documentation.</p></a>
+  <a class="info-card" href={url('/services/hpc-cluster/')}><h2>HPC User Guides</h2><p>Running jobs, using Slurm, loading software, and managing data.</p></a>
+  <a class="info-card" href={url('/services/national-resources/')}><h2>External Resources</h2><p>ACCESS, Jetstream2, Open Science Grid, and national cyberinfrastructure.</p></a>
+  <SupportBlock />
+</section>
+</BaseLayout>

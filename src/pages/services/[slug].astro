@@ -1,0 +1,19 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import SupportBlock from '../../components/SupportBlock.astro';
+import { services } from '../../content/services';
+import { site } from '../../content/site';
+export function getStaticPaths() { return services.map(service => ({ params: { slug: service.slug }, props: { service } })); }
+const { service } = Astro.props;
+---
+<BaseLayout title={`${service.title} | Research Computing Services`}>
+  <section class="page-header"><p class="big-icon">{service.icon}</p><h1>{service.title}</h1><p>{service.summary}</p></section>
+  <section class="container content-page">
+    <h2>Overview</h2><p>{service.body}</p>
+    {service.slug === 'jupyterhub' && <p><a class="button" href={site.jupyterHubGuide}>Open the JupyterHub Faculty Guide</a></p>}
+    {service.slug === 'globus' && <p><a class="button" href={site.globusGuide}>Open the Globus Faculty Guide</a></p>}
+    {service.slug === 'national-resources' && <><h2>Included resources</h2><ul><li>ACCESS allocations and support for national cyberinfrastructure</li><li>Jetstream2 cloud computing resources</li><li>Open Science Grid distributed high-throughput computing</li><li>Other external or discipline-specific research computing resources</li></ul></>}
+    <h2>Common requests</h2><ul><li>Account or access questions</li><li>Project planning and consultation</li><li>Software, workflow, or data support</li><li>Training for courses, labs, or research groups</li></ul>
+    <SupportBlock />
+  </section>
+</BaseLayout>

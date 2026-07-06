@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Panel from '../components/Panel.astro';
+import NewsFeature from '../components/NewsFeature.astro';
+import { services } from '../content/services';
+import { workshops } from '../content/workshops';
+import { spotlight } from '../content/spotlight';
+import { site, url } from '../content/site';
+const wantTo = services.filter(s => ['hpc-cluster','jupyterhub','globus','storage','rstudio','webwork','national-resources'].includes(s.slug));
+---
+<BaseLayout title="Research Computing Services | F&M">
+  <section class="hero-news">
+    <div class="hero">
+      <div class="hero-overlay">
+        <h1>Accelerating<br />Research at F&amp;M</h1>
+        <p>Research Computing Services provides the high performance computing, data, and expert support you need to advance discovery and scholarship.</p>
+        <div class="actions"><a class="button" href={url('/services/')}>Explore Services</a><a class="button ghost" href={site.ticketUrl}>Request Support</a></div>
+      </div>
+    </div>
+    <NewsFeature />
+  </section>
+
+  <section class="container">
+    <h2 class="block-title">I want to...</h2>
+    <div class="want-grid">{wantTo.map(service => <ServiceCard service={service} />)}</div>
+
+    <div class="dashboard-grid">
+      <Panel title="System Status">
+        {['HPC Cluster','JupyterHub','Globus','Storage','RStudio','WebWork'].map(name => <div class="status-row"><span class="dot">✓</span><strong>{name}</strong><span>Operational</span></div>)}
+        <a href={url('/contact/')}>View support options →</a>
+      </Panel>
+
+      <Panel title="Upcoming Workshops">
+        {workshops.map(w => <div class="workshop"><strong>{w.title}</strong><span>{w.date} · {w.time}</span></div>)}
+        <a href={url('/training/')}>View all workshops →</a>
+      </Panel>
+
+      <Panel title="Research Spotlight">
+        <div class="spotlight-card">
+          <img src={url(`/images/${spotlight.image}`)} alt="Neuron image associated with Dr. Christina Weaver's research" />
+          <div><h3>{spotlight.title}</h3><p>{spotlight.description}</p><a href={spotlight.url}>{spotlight.linkText} →</a></div>
+        </div>
+      </Panel>
+
+      <Panel title="Popular Resources">
+        <ul class="link-list">
+          <li><a href={site.jupyterHubGuide}>JupyterHub Faculty Guide</a></li>
+          <li><a href={site.globusGuide}>Globus Faculty Guide</a></li>
+          <li><a href={url('/documentation/')}>Software Catalog</a></li>
+          <li><a href={url('/training/')}>Tutorial Videos</a></li>
+        </ul>
+      </Panel>
+
+      <Panel title="Stay Connected">
+        <p>Get the latest news, updates, and events from Research Computing Services.</p>
+        <a class="button light" href={url('/news/')}>View News</a>
+      </Panel>
+    </div>
+  </section>
+</BaseLayout>

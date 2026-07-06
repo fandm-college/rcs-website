@@ -1,0 +1,6 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { spotlight } from '../../content/spotlight';
+import { url } from '../../content/site';
+---
+<BaseLayout title="Research | Research Computing Services"><section class="page-header"><h1>Research</h1><p>Faculty and student projects supported by Research Computing Services.</p></section><section class="container"><article class="research-feature"><img src={url(`/images/${spotlight.image}`)} alt="Neuron image associated with Dr. Christina Weaver's research" /><div><h2>{spotlight.title}</h2><p>{spotlight.description}</p><a class="button" href={spotlight.url}>{spotlight.linkText}</a></div></article></section></BaseLayout>

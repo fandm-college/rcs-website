@@ -1,0 +1,10 @@
+---
+import { url } from '../content/site';
+const { service } = Astro.props;
+---
+<a class="service-card" href={url(`/services/${service.slug}/`)}>
+  <div class="card-icon">{service.icon}</div>
+  <h3>{service.tasks || service.title}</h3>
+  <p>{service.summary}</p>
+  <span>→</span>
+</a>

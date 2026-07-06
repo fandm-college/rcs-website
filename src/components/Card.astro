@@ -1,0 +1,10 @@
+---
+import Icon from './Icon.astro';
+const { title, description, href = '#', icon = 'spark', compact = false } = Astro.props;
+---
+<a class={`card ${compact ? 'compact-card' : ''}`} href={href}>
+  <div class="icon-wrap"><Icon name={icon} /></div>
+  <h3>{title}</h3>
+  <p>{description}</p>
+  <span class="learn">Learn more →</span>
+</a>

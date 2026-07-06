@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import SupportBlock from '../../components/SupportBlock.astro';
+import { services } from '../../content/services';
+---
+<BaseLayout title="Services | Research Computing Services">
+  <section class="page-header"><h1>Our Services</h1><p>Computing, data, teaching, and consulting support for every stage of your research.</p></section>
+  <section class="container"><div class="service-grid">{services.map(service => <ServiceCard service={service} />)}</div><SupportBlock /></section>
+</BaseLayout>

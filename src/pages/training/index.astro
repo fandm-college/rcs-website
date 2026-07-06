@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { workshops } from '../../content/workshops';
+---
+<BaseLayout title="Training | Research Computing Services"><section class="page-header"><h1>Training</h1><p>Workshops, tutorials, and self-paced materials for researchers, faculty, and students.</p></section><section class="container card-grid">{workshops.map(w => <article class="info-card"><h2>{w.title}</h2><p>{w.date} · {w.time}</p><p>Workshop materials and registration details will be posted here.</p></article>)}</section></BaseLayout>

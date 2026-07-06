@@ -1,0 +1,15 @@
+---
+import { url } from '../content/site';
+const nav = [
+  ['Services','/services/'], ['Documentation','/documentation/'], ['Training','/training/'], ['Research','/research/'], ['News','/news/'], ['About','/about/'], ['Contact','/contact/']
+];
+---
+<header class="site-header">
+  <a class="brand" href={url('/')}>
+    <img src={url('/images/fm-logo.png')} alt="Franklin & Marshall College" />
+    <span>Research Computing<br/>Services</span>
+  </a>
+  <nav aria-label="Main navigation">
+    {nav.map(([label,href]) => <a href={url(href)}>{label}</a>)}
+  </nav>
+</header>

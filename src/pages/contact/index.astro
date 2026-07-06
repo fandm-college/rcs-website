@@ -1,0 +1,5 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { site } from '../../content/site';
+---
+<BaseLayout title="Contact | Research Computing Services"><section class="page-header"><h1>Contact Us</h1><p>Need help with research computing, data transfer, JupyterHub, Globus, RStudio, WebWork, HPC, or national resources?</p></section><section class="container content-page"><h2>Email</h2><p><a href={`mailto:${site.email}`}>{site.email}</a></p><h2>Open a ticket</h2><p>Submit a request through the F&amp;M IT Service Portal at <a href={site.ticketUrl}>request.fandm.edu</a>.</p><p>Include your username, the system involved, course or project information, error messages, screenshots, and the steps you have already tried.</p><h2>Visit us</h2><p>{site.location}<br />{site.college}</p></section></BaseLayout>
