@@ -17,32 +17,33 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
 
       - name: Confirm project files
         run: |
           pwd
           ls -la
-          test -f package.json
           cat package.json
 
-      - name: Install dependencies
-        run: npm install
+      - name: Clear npm cache
+        run: npm cache clean --force
 
-      - name: Verify Astro installation
-        run: |
-          ls -la node_modules/.bin
-          npx astro --version
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund
 
       - name: Build Astro site
-        run: npm run build
+        run: npx astro build
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
@@ -52,9 +53,11 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
