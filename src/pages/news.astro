@@ -1,0 +1,9 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NewsCard from '../components/NewsCard.astro';
+import { news } from '../data/news.js';
+---
+<BaseLayout title="News | Research Computing Services">
+  <section class="page-hero"><div class="container"><h1>News</h1><p>Updates, announcements, and research computing stories.</p></div></section>
+  <section class="section"><div class="container grid grid-3">{news.map((item) => <NewsCard item={item} />)}</div></section>
+</BaseLayout>

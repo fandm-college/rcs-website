@@ -1,0 +1,13 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteInfo } from '../data/site.js';
+---
+<BaseLayout title="Contact | Research Computing Services">
+  <section class="page-hero"><div class="container"><h1>Contact</h1><p>Get help from Research Computing Services.</p></div></section>
+  <section class="section"><div class="container content">
+    <h2>Email</h2><p>For general questions, consulting requests, or assistance with research computing resources, contact <a href={`mailto:${siteInfo.email}`}>{siteInfo.email}</a>.</p>
+    <h2>Open a support ticket</h2><p>For technical issues, account requests, software installation requests, course support, or service problems, submit a ticket through the F&amp;M IT Service Portal at <a href={siteInfo.requestPortal}>request.fandm.edu</a>.</p>
+    <p>Helpful details to include:</p><ul class="task-list"><li>Your F&amp;M username</li><li>The service involved, such as JupyterHub, Globus, RStudio, WeBWorK, or HPC</li><li>Course or research project name, if applicable</li><li>Error messages and screenshots</li><li>Steps you have already tried</li></ul>
+    <h2>Location</h2><p>{siteInfo.location}<br />{siteInfo.college}</p>
+  </div></section>
+</BaseLayout>

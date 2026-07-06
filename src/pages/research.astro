@@ -1,0 +1,10 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { spotlight } from '../data/spotlight.js';
+const base = import.meta.env.BASE_URL;
+const image = `${base}${spotlight.image.replace(/^\//, '')}`;
+---
+<BaseLayout title="Research | Research Computing Services">
+  <section class="page-hero"><div class="container"><h1>Research</h1><p>Examples of F&amp;M research and teaching supported by Research Computing Services.</p></div></section>
+  <section class="section"><div class="container spotlight"><img src={image} alt="Research image for Dr. Christina Weaver spotlight" /><div><div class="kicker">Faculty Research Spotlight</div><h2>{spotlight.name}</h2><p>{spotlight.summary}</p><a class="button button-primary" href={spotlight.href}>Read the spotlight</a></div></div></section>
+</BaseLayout>
