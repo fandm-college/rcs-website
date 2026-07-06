@@ -14,11 +14,14 @@ const navItems = [
 ---
 
 <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href={url('/')}>
+  <div class="header-inner">
+    <a class="brand" href={url('/')} aria-label="Franklin & Marshall College home">
       <img src={url('/images/fm-logo.png')} alt="Franklin & Marshall College" />
-      <span class="brand-title">Research Computing Services</span>
     </a>
+
+    <span class="brand-divider" aria-hidden="true"></span>
+
+    <span class="brand-title">Research Computing Services</span>
 
     <nav class="nav" aria-label="Primary navigation">
       {navItems.map((item) => (

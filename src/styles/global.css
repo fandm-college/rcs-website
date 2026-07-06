@@ -57,16 +57,16 @@ img { max-width: 100%; display: block; }
 }
 
 .header-inner {
+  min-height: 76px;
   display: flex;
   align-items: center;
-  min-height: 76px;
-  gap: 2rem;
+  gap: 1.6rem;
+  padding: 0 32px;
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
   color: white;
   text-decoration: none;
   flex-shrink: 0;
@@ -75,49 +75,56 @@ img { max-width: 100%; display: block; }
 .brand img {
   height: 58px;
   width: auto;
-  border-radius: 0;
+  display: block;
 }
 
-.brand::after {
-  content: "";
+.brand-divider {
   width: 2px;
   height: 52px;
-  background: rgba(255,255,255,.75);
+  background: rgba(255, 255, 255, 0.85);
+  flex-shrink: 0;
 }
 
 .brand-title {
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 1.1rem;
   letter-spacing: .02em;
   text-transform: uppercase;
   color: white;
   white-space: nowrap;
-}
-
-.brand-subtitle {
-  display: none;
+  flex-shrink: 0;
 }
 
 .nav {
   margin-left: auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
   align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
 }
 
 .nav a {
   color: white;
   padding: .45rem 0;
-  border-radius: 0;
   font-weight: 750;
   font-size: .96rem;
+  text-decoration: none;
 }
 
 .nav a:hover,
 .nav a.active {
-  background: transparent;
   text-decoration: underline;
+}
+
+.search-button {
+  border: 0;
+  background: transparent;
+  color: white;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
 }
 
 /* Buttons */
@@ -554,13 +561,4 @@ img { max-width: 100%; display: block; }
   .grid-4 {
     grid-template-columns: 1fr;
   }
-}
-
-.search-button {
-  border: 0;
-  background: transparent;
-  color: white;
-  font-size: 2rem;
-  line-height: 1;
-  cursor: pointer;
 }
