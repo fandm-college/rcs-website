@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import NewsCard from '../components/NewsCard.astro';
+import MaintenanceBanner from '../components/MaintenanceBanner.astro';
 import { services } from '../data/services.js';
 import { news } from '../data/news.js';
 import { spotlight } from '../data/spotlight.js';
@@ -26,18 +27,22 @@ const spotlightImage = url(spotlight.image);
         </div>
       </div>
 
-      <aside class="hero-panel">
-        <h2>System Status</h2>
-        <div class="status-list">
-          <div class="status-item"><span>HPC Cluster</span><span class="status-ok">Operational</span></div>
-          <div class="status-item"><span>JupyterHub</span><span class="status-ok">Operational</span></div>
-          <div class="status-item"><span>Globus</span><span class="status-ok">Operational</span></div>
-          <div class="status-item"><span>Storage</span><span class="status-ok">Operational</span></div>
-          <div class="status-item"><span>RStudio</span><span class="status-ok">Operational</span></div>
-          <div class="status-item"><span>WebWork</span><span class="status-ok">Operational</span></div>
-        </div>
-        <a class="status-link" href={url('/status/')}>View full status page →</a>
-      </aside>
+      <div class="hero-status-stack">
+        <MaintenanceBanner />
+
+        <aside class="hero-panel">
+          <h2>System Status</h2>
+          <div class="status-list">
+            <div class="status-item"><span>HPC Cluster</span><span class="status-ok">Operational</span></div>
+            <div class="status-item"><span>JupyterHub</span><span class="status-ok">Operational</span></div>
+            <div class="status-item"><span>Globus</span><span class="status-ok">Operational</span></div>
+            <div class="status-item"><span>Storage</span><span class="status-ok">Operational</span></div>
+            <div class="status-item"><span>RStudio</span><span class="status-ok">Operational</span></div>
+            <div class="status-item"><span>WebWork</span><span class="status-ok">Operational</span></div>
+          </div>
+          <a class="status-link" href={url('/status/')}>View full status page →</a>
+        </aside>
+      </div>
     </div>
   </section>
 

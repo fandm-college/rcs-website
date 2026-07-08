@@ -1,0 +1,93 @@
+---
+import { maintenance } from "../data/maintenance";
+
+const stateClass = `maintenance-banner maintenance-banner--${maintenance.state}`;
+---
+
+{maintenance.enabled && (
+  <section class={stateClass} aria-label="Scheduled maintenance notice">
+    <div class="maintenance-banner__icon" aria-hidden="true">
+      {maintenance.state === "active" ? "⛔" : "⚠️"}
+    </div>
+
+    <div class="maintenance-banner__content">
+      <div class="maintenance-banner__title">{maintenance.title}</div>
+      <div class="maintenance-banner__message">{maintenance.message}</div>
+
+      {maintenance.link && (
+        <a class="maintenance-banner__link" href={maintenance.link}>
+          {maintenance.linkText ?? "Learn More"}
+        </a>
+      )}
+    </div>
+  </section>
+)}
+
+<style>
+  .maintenance-banner {
+    display: flex;
+    gap: 0.85rem;
+    align-items: flex-start;
+    padding: 1rem 1.15rem;
+    margin-bottom: 1rem;
+    border-radius: 0.75rem;
+    border: 1px solid;
+    line-height: 1.45;
+  }
+
+  .maintenance-banner--info {
+    background: #eef6ff;
+    border-color: #b8d9f7;
+    color: #15395b;
+  }
+
+  .maintenance-banner--scheduled {
+    background: #fff7df;
+    border-color: #e9c766;
+    color: #4f3900;
+  }
+
+  .maintenance-banner--active {
+    background: #fdecec;
+    border-color: #e29a9a;
+    color: #641f1f;
+  }
+
+  .maintenance-banner__icon {
+    font-size: 1.25rem;
+    line-height: 1.2;
+  }
+
+  .maintenance-banner__content {
+    flex: 1;
+  }
+
+  .maintenance-banner__title {
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .maintenance-banner__message {
+    font-size: 0.95rem;
+  }
+
+  .maintenance-banner__link {
+    display: inline-block;
+    margin-top: 0.45rem;
+    font-weight: 700;
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 640px) {
+    .maintenance-banner {
+      padding: 0.85rem;
+    }
+
+    .maintenance-banner__message,
+    .maintenance-banner__link {
+      font-size: 0.9rem;
+    }
+  }
+</style>

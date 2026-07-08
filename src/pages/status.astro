@@ -1,0 +1,353 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MaintenanceBanner from '../components/MaintenanceBanner.astro';
+
+const base = import.meta.env.BASE_URL;
+const url = (path) => `${base}${path.replace(/^\//, '')}`;
+---
+
+<BaseLayout title="System Status | Research Computing Services">
+  <main class="status-page">
+    <section class="status-hero">
+      <p class="eyebrow">Research Computing Services</p>
+      <h1>System Status</h1>
+      <p>
+        Current availability and recent usage information for Franklin &amp; Marshall
+        Research Computing systems.
+      </p>
+    </section>
+
+    <MaintenanceBanner />
+
+    <section class="status-card">
+      <div class="section-header">
+        <h2>Current System Status</h2>
+        <p>Last updated: July 8, 2026 at 11:42 AM</p>
+      </div>
+
+      <div class="status-grid">
+        <div class="status-item">
+          <span class="status-dot status-dot--online"></span>
+          <div>
+            <h3>HPC Cluster</h3>
+            <p>Operational</p>
+          </div>
+        </div>
+
+        <div class="status-item">
+          <span class="status-dot status-dot--online"></span>
+          <div>
+            <h3>Scheduler</h3>
+            <p>Healthy</p>
+          </div>
+        </div>
+
+        <div class="status-item">
+          <span class="status-dot status-dot--online"></span>
+          <div>
+            <h3>Storage</h3>
+            <p>Healthy</p>
+          </div>
+        </div>
+
+        <div class="status-item">
+          <span class="status-dot status-dot--online"></span>
+          <div>
+            <h3>Open OnDemand</h3>
+            <p>Online</p>
+          </div>
+        </div>
+
+        <div class="status-item">
+          <span class="status-dot status-dot--online"></span>
+          <div>
+            <h3>JupyterHub</h3>
+            <p>Operational</p>
+          </div>
+        </div>
+
+        <div class="status-item">
+          <span class="status-dot status-dot--online"></span>
+          <div>
+            <h3>Globus</h3>
+            <p>Operational</p>
+          </div>
+        </div>
+
+        <div class="status-item">
+          <span class="status-dot status-dot--online"></span>
+          <div>
+            <h3>RStudio</h3>
+            <p>Operational</p>
+          </div>
+        </div>
+
+        <div class="status-item">
+          <span class="status-dot status-dot--online"></span>
+          <div>
+            <h3>WebWork</h3>
+            <p>Operational</p>
+          </div>
+        </div>
+
+        <div class="status-item">
+          <span class="status-dot status-dot--online"></span>
+          <div>
+            <h3>GPU Nodes</h3>
+            <p>Available</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="status-card">
+      <div class="section-header">
+        <h2>Monthly Cluster Usage</h2>
+        <p>June 2026</p>
+      </div>
+
+      <div class="usage-grid">
+        <div class="usage-stat">
+          <span class="usage-number">7</span>
+          <span class="usage-label">Users</span>
+        </div>
+
+        <div class="usage-stat">
+          <span class="usage-number">3,554</span>
+          <span class="usage-label">Jobs</span>
+        </div>
+
+        <div class="usage-stat">
+          <span class="usage-number">625,294.16</span>
+          <span class="usage-label">CPU Hours</span>
+        </div>
+
+        <div class="usage-stat">
+          <span class="usage-number">2</span>
+          <span class="usage-label">GPU Jobs</span>
+        </div>
+
+        <div class="usage-stat">
+          <span class="usage-number">6.83</span>
+          <span class="usage-label">GPU Hours</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="status-card osg-card">
+      <div>
+        <h2>F&amp;M Contributions to OSG</h2>
+        <p>
+          View Franklin &amp; Marshall College&rsquo;s contributions to the OSPool
+          through the Open Science Grid.
+        </p>
+      </div>
+
+      <a
+        class="button-link"
+        href="https://osg-htc.org/services/ospool/institutions?institution=Franklin+%26+Marshall+College"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        View OSG Contributions
+      </a>
+    </section>
+
+    <section class="status-note">
+      <strong>Note:</strong> All times are Eastern Time. Status information and usage
+      statistics are currently updated manually.
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .status-page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem 4rem;
+  }
+
+  .status-hero {
+    margin-bottom: 1.5rem;
+  }
+
+  .eyebrow {
+    margin: 0 0 0.35rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #365f91;
+  }
+
+  .status-hero h1 {
+    margin: 0;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: #003865;
+  }
+
+  .status-hero p {
+    max-width: 700px;
+    margin-top: 0.75rem;
+    font-size: 1.05rem;
+    color: #425466;
+  }
+
+  .status-card {
+    background: #ffffff;
+    border: 1px solid #d9e2ec;
+    border-radius: 0.9rem;
+    padding: 1.25rem;
+    margin-top: 1.25rem;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: baseline;
+    margin-bottom: 1rem;
+  }
+
+  .section-header h2,
+  .osg-card h2 {
+    margin: 0;
+    color: #003865;
+    font-size: 1.35rem;
+  }
+
+  .section-header p,
+  .osg-card p {
+    margin: 0;
+    color: #66788a;
+  }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .status-item {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 1rem;
+    border: 1px solid #e6edf3;
+    border-radius: 0.75rem;
+    background: #f8fbfd;
+  }
+
+  .status-item h3 {
+    margin: 0;
+    color: #1f2d3d;
+    font-size: 1rem;
+  }
+
+  .status-item p {
+    margin: 0.15rem 0 0;
+    color: #52606d;
+  }
+
+  .status-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-top: 0.3rem;
+    border-radius: 999px;
+    flex: 0 0 auto;
+  }
+
+  .status-dot--online {
+    background: #2f855a;
+  }
+
+  .status-dot--warning {
+    background: #d69e2e;
+  }
+
+  .status-dot--offline {
+    background: #c53030;
+  }
+
+  .usage-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .usage-stat {
+    padding: 1.1rem;
+    border-radius: 0.75rem;
+    background: #f8fbfd;
+    border: 1px solid #e6edf3;
+  }
+
+  .usage-number {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #003865;
+    line-height: 1.1;
+  }
+
+  .usage-label {
+    display: block;
+    margin-top: 0.35rem;
+    color: #52606d;
+    font-weight: 600;
+  }
+
+  .osg-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .button-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    padding: 0.75rem 1rem;
+    border-radius: 0.6rem;
+    background: #003865;
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .button-link:hover {
+    background: #00294a;
+  }
+
+  .status-note {
+    margin-top: 1.25rem;
+    padding: 1rem 1.15rem;
+    border-radius: 0.75rem;
+    border: 1px solid #cfe0f5;
+    background: #f3f8ff;
+    color: #34495e;
+  }
+
+  @media (max-width: 850px) {
+    .status-grid,
+    .usage-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .osg-card,
+    .section-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 520px) {
+    .status-grid,
+    .usage-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
