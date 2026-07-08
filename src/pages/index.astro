@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import NewsCard from '../components/NewsCard.astro';
-import MaintenanceBanner from '../components/MaintenanceBanner.astro';
 import { services } from '../data/services.js';
 import { news } from '../data/news.js';
 import { spotlight } from '../data/spotlight.js';
@@ -10,39 +9,101 @@ import { spotlight } from '../data/spotlight.js';
 const base = import.meta.env.BASE_URL;
 const url = (path) => `${base}${path.replace(/^\//, '')}`;
 const spotlightImage = url(spotlight.image);
+
+const heroSlides = [
+  {
+    kicker: '',
+    title: 'Accelerating<br />Research at F&amp;M',
+    text: 'Research Computing Services provides the high performance computing, data, and expert support you need to advance discovery and scholarship.',
+    image: url('images/hero-campus.png'),
+    imageAlt: '',
+    actions: [
+      { label: 'Explore Services', href: url('/services/'), class: 'button button-primary' },
+      { label: 'Request Support', href: 'https://request.fandm.edu/', class: 'button button-outline' },
+    ],
+  },
+  {
+    kicker: 'Student Research Spotlight',
+    title: 'Student Research Spotlight',
+    text: 'As a Hackman Scholar, F&amp;M Senior Zining Liu worked with F&amp;M Professor Brad McDanel and others to publish research titled PipeSpec: Breaking Stage Dependencies in Hierarchical LLM Decoding. It was presented at DAC&#39;25 and went on to be published in Association for Computational Linguistics.',
+    image: url('/images/pipe-spec.png'),
+    imageAlt: 'Placeholder image for student research spotlight',
+    actions: [
+      {
+        label: 'Read more...',
+        href: 'https://drive.google.com/file/d/1PE88K8lA2vCn_DkVFSsBrwS7Oi1mz0mm/view',
+        class: 'button button-primary',
+      },
+    ],
+  },
+  {
+    kicker: 'Faculty Research Spotlight',
+    title: spotlight.title,
+    subtitle: spotlight.name,
+    text: spotlight.summary,
+    image: spotlightImage,
+    imageAlt: 'Research image for Dr. Christina Weaver spotlight',
+    actions: [
+      { label: 'Read the spotlight', href: spotlight.href, class: 'button button-primary' },
+    ],
+  },
+];
 ---
 
 <BaseLayout title="Research Computing Services | Franklin & Marshall College">
-  <section class="hero">
-    <div class="hero-grid">
-      <div>
-        <h1>Accelerating<br />Research at F&amp;M</h1>
-        <p>
-          Research Computing Services provides the high performance computing,
-          data, and expert support you need to advance discovery and scholarship.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href={url('/services/')}>Explore Services</a>
-          <a class="button button-outline" href="https://request.fandm.edu/">Request Support</a>
-        </div>
-      </div>
+  <section class="hero hero-carousel" aria-label="Featured Research Computing content">
+    <div class="hero-carousel-track">
+      {heroSlides.map((slide, index) => (
+        <article class={`hero-slide ${index === 0 ? 'is-active' : ''}`} data-slide>
+          <div class="hero-grid">
+            <div>
+              {slide.kicker && <div class="kicker">{slide.kicker}</div>}
+              <h1 set:html={slide.title} />
+              {slide.subtitle && <h3>{slide.subtitle}</h3>}
+              <p set:html={slide.text} />
+              <div class="hero-actions">
+                {slide.actions.map((action) => (
+                  <a class={action.class} href={action.href}>{action.label}</a>
+                ))}
+              </div>
+            </div>
 
-      <div class="hero-status-stack">
-        <MaintenanceBanner />
-
-        <aside class="hero-panel">
-          <h2>System Status</h2>
-          <div class="status-list">
-            <div class="status-item"><span>HPC Cluster</span><span class="status-ok">Operational</span></div>
-            <div class="status-item"><span>JupyterHub</span><span class="status-ok">Operational</span></div>
-            <div class="status-item"><span>Globus</span><span class="status-ok">Operational</span></div>
-            <div class="status-item"><span>Storage</span><span class="status-ok">Operational</span></div>
-            <div class="status-item"><span>RStudio</span><span class="status-ok">Operational</span></div>
-            <div class="status-item"><span>WebWork</span><span class="status-ok">Operational</span></div>
+            {slide.image ? (
+              <aside class="hero-panel hero-image-panel">
+                <img src={slide.image} alt={slide.imageAlt} />
+              </aside>
+            ) : (
+              <aside class="hero-panel">
+                <h2>System Status</h2>
+                <div class="status-list">
+                  <div class="status-item"><span>HPC Cluster</span><span class="status-ok">Operational</span></div>
+                  <div class="status-item"><span>JupyterHub</span><span class="status-ok">Operational</span></div>
+                  <div class="status-item"><span>Globus</span><span class="status-ok">Operational</span></div>
+                  <div class="status-item"><span>Storage</span><span class="status-ok">Operational</span></div>
+                  <div class="status-item"><span>RStudio</span><span class="status-ok">Operational</span></div>
+                  <div class="status-item"><span>WebWork</span><span class="status-ok">Operational</span></div>
+                </div>
+                <a class="status-link" href={url('/status/')}>View full status page →</a>
+              </aside>
+            )}
           </div>
-          <a class="status-link" href={url('/status/')}>View full status page →</a>
-        </aside>
+        </article>
+      ))}
+    </div>
+
+    <div class="hero-carousel-controls" aria-label="Carousel controls">
+      <button type="button" class="carousel-button" data-carousel-prev aria-label="Previous slide">‹</button>
+      <div class="carousel-dots">
+        {heroSlides.map((_, index) => (
+          <button
+            type="button"
+            class={`carousel-dot ${index === 0 ? 'is-active' : ''}`}
+            data-carousel-dot={index}
+            aria-label={`Show slide ${index + 1}`}
+          />
+        ))}
       </div>
+      <button type="button" class="carousel-button" data-carousel-next aria-label="Next slide">›</button>
     </div>
   </section>
 
@@ -95,19 +156,6 @@ const spotlightImage = url(spotlight.image);
     </div>
   </section>
 
-  <section class="section band">
-    <div class="container spotlight">
-      <img src={spotlightImage} alt="Research image for Dr. Christina Weaver spotlight" />
-      <div>
-        <div class="kicker">Faculty Research Spotlight</div>
-        <h2>{spotlight.title}</h2>
-        <h3>{spotlight.name}</h3>
-        <p>{spotlight.summary}</p>
-        <a class="button button-primary" href={spotlight.href}>Read the spotlight</a>
-      </div>
-    </div>
-  </section>
-
   <section class="section">
     <div class="container">
       <div class="section-heading">
@@ -123,4 +171,31 @@ const spotlightImage = url(spotlight.image);
       </div>
     </div>
   </section>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('[data-slide]'));
+    const dots = Array.from(document.querySelectorAll('[data-carousel-dot]'));
+    const prevButton = document.querySelector('[data-carousel-prev]');
+    const nextButton = document.querySelector('[data-carousel-next]');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      currentSlide = (index + slides.length) % slides.length;
+
+      slides.forEach((slide, slideIndex) => {
+        slide.classList.toggle('is-active', slideIndex === currentSlide);
+      });
+
+      dots.forEach((dot, dotIndex) => {
+        dot.classList.toggle('is-active', dotIndex === currentSlide);
+      });
+    }
+
+    prevButton?.addEventListener('click', () => showSlide(currentSlide - 1));
+    nextButton?.addEventListener('click', () => showSlide(currentSlide + 1));
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => showSlide(index));
+    });
+  </script>
 </BaseLayout>
