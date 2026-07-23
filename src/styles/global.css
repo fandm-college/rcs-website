@@ -271,6 +271,11 @@ img { max-width: 100%; display: block; }
   font-weight: 700;
 }
 
+.status-down {
+  color: #dc2626;
+  font-weight: 700;
+}
+
 /* Existing lower-page styles */
 
 .section {

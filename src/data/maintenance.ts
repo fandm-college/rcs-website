@@ -3,7 +3,7 @@ export const maintenance = {
   state: "scheduled", // "info" | "scheduled" | "active"
   title: "Scheduled Maintenance",
   message:
-    "Cluster maintenance is scheduled from July 20 through July 27. Access to cluster resources may be unavailable during this maintenance window.",
+    "Jupyterhub iscurrently down while we perform maintenance",
   link: "/status/",
   linkText: "View Details",
 };
