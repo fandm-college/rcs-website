@@ -799,11 +799,15 @@ img { max-width: 100%; display: block; }
     right: 1rem;
   }
 }
+/* Show the whole PipeSpec diagram instead of cropping it to a square. -JB */
+.hero-carousel-image img[src*="pipe-spec"] {
+  object-fit: contain;
+}
 /* ------------------------------------------------------------------
    Wide-screen scaling
    One page width that grows with the monitor: 1120px minimum,
    82% of the screen in between, 1680px maximum. Change these three
-   numbers to tune how much of a wide monitor the page uses.
+   numbers to tune how much of a wide monitor the page uses. -JB
    ------------------------------------------------------------------ */
 :root {
   --page-max: clamp(1120px, 82vw, 1680px);
