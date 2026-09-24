@@ -866,3 +866,22 @@ img { max-width: 100%; display: block; }
     padding-right: 5.5rem;
   }
 }
+/* Links inside hero slide text (e.g., Student Spotlight). -JB */
+.hero-carousel-copy p a {
+  color: var(--color-blue, #0057d8);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Outline buttons on the white hero (e.g., "Request Support").
+   The original style was white-on-white and looked disabled. */
+.hero-carousel .button-outline {
+  border: 2px solid var(--color-blue, #0057d8);
+  color: var(--color-blue, #0057d8);
+  background: #fff;
+}
+
+.hero-carousel .button-outline:hover {
+  background: var(--blue-light, #eaf2fb);
+}
