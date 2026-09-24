@@ -853,3 +853,16 @@ img { max-width: 100%; display: block; }
 .hero-carousel-image img[src*="pipe-spec"] {
   object-fit: contain;
 }
+/* Space between the last status row and the "View full status page" link. -JB */
+.hero-panel .status-link {
+  display: inline-block;
+  margin-top: 1.25rem;
+}
+
+/* Line the System Status panel's right edge up with the content below. - JB*/
+@media (min-width: 1251px) {
+  .hero-status-column {
+    align-items: flex-end;
+    padding-right: 5.5rem;
+  }
+}
