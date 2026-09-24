@@ -799,10 +799,6 @@ img { max-width: 100%; display: block; }
     right: 1rem;
   }
 }
-/* Show the whole PipeSpec diagram instead of cropping it to a square. -JB */
-.hero-carousel-image img[src*="pipe-spec"] {
-  object-fit: contain;
-}
 /* ------------------------------------------------------------------
    Wide-screen scaling
    One page width that grows with the monitor: 1120px minimum,
@@ -852,4 +848,8 @@ img { max-width: 100%; display: block; }
   .hero-status-column {
     padding-inline: 1.5rem;
   }
+}
+/* Show the whole PipeSpec diagram instead of cropping it to a square. -JB */
+.hero-carousel-image img[src*="pipe-spec"] {
+  object-fit: contain;
 }
