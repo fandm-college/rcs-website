@@ -884,4 +884,26 @@ img { max-width: 100%; display: block; }
 
 .hero-carousel .button-outline:hover {
   background: var(--blue-light, #eaf2fb);
+}/* Maintenance banner above the System Status panel on the home page.-JB
+.hero-maintenance {
+  width: min(100%, 360px);
+}
+
+.hero-status-column .hero-maintenance .maintenance-banner {
+  margin-bottom: 0;
+}
+
+.hero-maintenance + .hero-panel {
+  margin-top: 0;
+}
+
+@media (max-width: 1100px) {
+  .hero-maintenance {
+    width: 100%;
+  }
+}
+
+/* Stop the home page's status dot from also appearing on the status page.-JB
+.status-grid .status-item span:first-child::before {
+  content: none;
 }

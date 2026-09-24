@@ -5,6 +5,8 @@ import NewsCard from '../components/NewsCard.astro';
 import { services } from '../data/services.js';
 import { news } from '../data/news.js';
 import { spotlight } from '../data/spotlight.js';
+import MaintenanceBanner from '../components/MaintenanceBanner.astro';
+import { maintenance } from '../data/maintenance';
 
 const base = import.meta.env.BASE_URL;
 const url = (path) => `${base}${path.replace(/^\//, '')}`;
@@ -111,16 +113,11 @@ const heroSlides = [
     </div>
 
     <aside class="hero-status-column">
-      <!-- Uncomment this section to add an alert
-      <div class="maintenance-card">
-        <div class="maintenance-icon">⚠️</div>
-        <div>
-          <h2>Jupyterhub maintenance</h2>
-          <p>
-            Jupyterhub is down for maintenace.  We will update the staus here when it's back up
-          </p>
+      {maintenance.enabled && (
+        <div class="hero-maintenance">
+          <MaintenanceBanner />
         </div>
-      </div> -->
+      )}
 
       <div class="hero-panel">
         <h2>System Status</h2>
