@@ -8,7 +8,7 @@ intro: "Sometimes a project needs a computer of its own. We can provide one, wit
 
 ## What is a virtual research system?
 
-A virtual research system is a server that runs on RCS infrastructure but behaves like your own dedicated machine that you can connect to as you need it. We can allocate hardware, software and memory based on the need of the project.
+A virtual research system is a server that runs on RCS infrastructure, but behaves like your own dedicated project machine. We size each system to fit the project, with the processors, memory, storage, and software your work calls for.
 
 ## When it's a good fit
 
