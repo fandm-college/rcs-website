@@ -12,7 +12,7 @@ At F&M, faculty and students use our resources for work in artificial intelligen
 
 ![Conduit high performance compute cluster: From curiosity to discovery to impact.](./conduit.png)
 
-Just as Benjamin Franklin used a simple kite string to connect his idea to groundbreaking science, Conduit connects the ideas of our faculty and students to research that makes an impact. Bring the question; Conduit provides the power to find the answers.
+Just as Benjamin Franklin used a simple kite string to connect his idea to groundbreaking science, Conduit connects the ideas of our faculty and students to research that makes an impact.
 
 | | |
 |---|---|
