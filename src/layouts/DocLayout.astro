@@ -1,0 +1,11 @@
+---
+// Layout for documentation pages written in Markdown (src/pages/documentation/*.md).
+import BaseLayout from './BaseLayout.astro';
+const { frontmatter } = Astro.props;
+---
+<BaseLayout title={`${frontmatter.title} | Research Computing Services`}>
+  <section class="page-hero"><div class="container"><div class="eyebrow">Documentation</div><h1>{frontmatter.title}</h1>{frontmatter.intro && <p>{frontmatter.intro}</p>}</div></section>
+  <section class="section"><div class="container"><article class="content service-story">
+    <slot />
+  </article></div></section>
+</BaseLayout>
