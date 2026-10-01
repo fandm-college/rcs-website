@@ -8,7 +8,7 @@ Research often outgrows your personal computer. It may be a simulation that woul
  
 At F&M, faculty and students use our resources for work in artificial intelligence, chemistry, astrophysics, computational neuroscience, computer science, and more. You don't need to be an expert in Linux, programming, or computing to start. Many people come to us with a basic idea for a project, or with a script that works on their own machine. They ask questions like: How can I make it scale better, run faster, handle larger data sets, or use memory more efficiently? That's a great place to start!
 
-## Conduit, F&M's HPC cluster
+## Conduit, F&M's High Performance Computing (HPC) cluster
 
 ![Conduit high performance compute cluster: From curiosity to discovery to impact.](./conduit.png)
 
