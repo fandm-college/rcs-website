@@ -2,7 +2,7 @@ export const services = [
   {
     slug: 'hpc',
     icon: '⚙️',
-    title: 'HPC Cluster',
+    title: 'AI and HPC',
     summary: 'Run computationally intensive research jobs on shared campus computing resources.',
     audience: 'Faculty, students, and collaborators who need more computing power than a laptop or desktop can provide.',
     tasks: ['Request an HPC account', 'Run batch jobs with Slurm', 'Use installed scientific software', 'Plan computational workflows'],
