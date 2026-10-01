@@ -12,7 +12,7 @@ At F&M, faculty and students use our resources for work in artificial intelligen
 
 ![Conduit high performance compute cluster: From curiosity to discovery to impact.](./conduit.png)
 
-Conduit takes its name from Benjamin Franklin's kite experiment, where a wet hemp string drew electricity from a storm cloud down to where it could be studied. Conduit does the same job for research at F&M: it puts computing power that would otherwise be out of reach into the hands of our faculty and students.
+Just as Benjamin Franklin used a simple kite string to connect his idea to groundbreaking science, Conduit connects the ideas of our faculty and students to research that makes an impact. Bring the question; Conduit provides the power to pursue it.
 
 | | |
 |---|---|
