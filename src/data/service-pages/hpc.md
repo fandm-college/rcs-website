@@ -4,7 +4,7 @@ intro: "When your laptop fans start sounding like a jet engine, it's time to tal
 
 ## Does my research need more compute power?
 
-Research often outgrows your personal computer. It may be a simulation that would tie up your laptop for a week, a model that needs a larger GPU than your workstation can provide, or the need to run a thousand analyses you'd rather run all at once, than one at a time. That's where we come in.
+Did your research outgrow your laptop or workstation? It may be a simulation that would tie up your laptop for a week, a model that needs a larger GPU than your workstation can provide, or the need to run a thousand analyses you'd rather run all at once, than one at a time. That's where we come in.
  
 At F&M, faculty and students use our resources for work in artificial intelligence, chemistry, astrophysics, computational neuroscience, computer science, and more. You don't need to be an expert in Linux, programming, or computing to start. Many people come to us with a basic idea for a project, or with a script that works on their own machine. They ask questions like: How can I make it scale better, run faster, handle larger data sets, or use memory more efficiently? That's a great place to start!
 
