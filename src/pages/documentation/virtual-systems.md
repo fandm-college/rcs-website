@@ -1,7 +1,7 @@
 ---
 layout: ../../layouts/DocLayout.astro
 title: Virtual Research Systems
-intro: "Sometimes a project needs a computer of its own. We can provide one, without the hardware."
+intro: "Sometimes a project needs a specialized computer of its own. We can use our virtual infrastructure to provide a system for your research"
 ---
 
 <!-- Replace the placeholder text below with details about the virtual systems RCS offers. -->
@@ -25,4 +25,4 @@ _RCS has a series of virtual machine hosts with hundreds of cores, separated GPU
 
 [Open a ticket](https://request.fandm.edu) and search for Research Computing. Tell us what you'd like to run and roughly how long you'll need it, and we'll follow up to work out the details.
 
-Not sure whether you need a virtual system or the [campus cluster](../../services/hpc/)? Ask us. That's what we're here for.
+Not sure whether you need a virtual system or the [campus cluster](../../services/hpc/)? Ask us!
