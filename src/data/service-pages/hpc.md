@@ -34,6 +34,6 @@ After you reach out about your project, you can access Conduit right in your web
 
 ## Need something different?
 
-Not every project fits the cluster. If you need access to a GPU, a system for a long-running service, more memory, or software that doesn't play well with a shared system, one of our [virtual research systems](../../documentation/virtual-systems/) may suit you better.
+Not every project fits an HPC cluster. If you need access to a GPU, a system for a long-running service, more memory, or software that doesn't play well with a shared system, one of our [virtual research systems](../../documentation/virtual-systems/) may suit you better.
 
 And if your work needs more than F&M's campus solutions can provide, we can help you get time on national resources like [ACCESS](https://access-ci.org/) and the [OSPool](https://osg-htc.org/services/ospool/).
