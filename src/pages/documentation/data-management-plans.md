@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/DocLayout.astro
-title: "Data Management & Sharing Plans"
+title: "Data Management and Sharing Plans"
 intro: "How F&M protects and shares research data, plus copy-ready language for the data management and sharing plan in your NIH or NSF proposal."
 ---
 
