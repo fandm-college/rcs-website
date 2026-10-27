@@ -1,5 +1,5 @@
 ---
-intro: "Two tools for teaching with data and with math: Posit Workbench (RStudio) for working in R, and WeBWorK for online problem sets. We run them so you can focus on your course."
+intro: "Tools for teaching with data and math: Posit Workbench (RStudio) for working in R, and WeBWorK for online problem sets. We run them so you can focus on your course."
 ---
 
 ## Posit Workbench (RStudio)
