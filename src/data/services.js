@@ -27,21 +27,12 @@ export const services = [
     links: [{ label: 'Globus faculty guide', href: 'https://fandm-college.github.io/globus/' }]
   },
   {
-    slug: 'rstudio',
+    slug: 'rstudio-webwork',
     icon: '📊',
-    title: 'RStudio',
-    summary: 'Access R and RStudio environments for teaching, statistics, data analysis, and reproducible research.',
-    audience: 'Faculty and students using R for coursework, research projects, or workshops.',
-    tasks: ['Use RStudio in a managed environment', 'Request course support', 'Install packages', 'Troubleshoot R projects'],
-    links: [{ label: 'Open a support ticket', href: 'https://request.fandm.edu' }]
-  },
-  {
-    slug: 'webwork',
-    icon: '🧮',
-    title: 'WeBWorK',
-    summary: 'Support online mathematics homework and assessment using WeBWorK.',
-    audience: 'Faculty using online problem sets in mathematics, quantitative courses, or related disciplines.',
-    tasks: ['Request a course', 'Manage problem sets', 'Support student access', 'Troubleshoot assignments'],
+    title: 'Classroom Solutions',
+    summary: 'Support for Posit Workbench (RStudio), R, and WeBWorK for instruction and lab learning. Teach R, statistics, and data analysis, and run online math homework and assessment.',
+    audience: 'Faculty and students using R in courses and workshops, and faculty using online problem sets in mathematics and quantitative courses.',
+    tasks: ['Request a Posit Workbench account', 'Request a course on Posit Workbench or WeBWorK', 'Install R packages for a course', 'Manage WeBWorK problem sets', 'Troubleshoot R projects or assignments'],
     links: [{ label: 'Open a support ticket', href: 'https://request.fandm.edu' }]
   },
   {
